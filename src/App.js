@@ -1,26 +1,69 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { createFiftyRandomColors } from './assets/helperfunctions';
+import { Color } from './components/Color';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+    constructor(props) {
+		super(props);
+			
+		this.state = {
+			colors: [],
+			initialized: false,
+			selectedColor: null
+		};
+		
+		this.changeColor = this.changeColor.bind(this);
+		this.startOver = this.startOver.bind(this);
+	}
+	
+	componentDidMount() {
+		
+		if(!this.state.intialized) {
+					
+			let colors = createFiftyRandomColors();
+			this.setState({
+				colors: colors,
+				initialized: true
+			});
+					
+		}
+	}
+		
+	changeColor(newColor) {
+		
+
+		this.setState({
+			selectedColor: newColor
+		});
+		
+		
+	}
+	
+	startOver() {
+		
+		let colors = createFiftyRandomColors();
+		this.setState({
+			colors: colors,
+			initialized: true,
+			selectedColor: null
+		});
+	}
+	
+	
+	
+	render() {
+       
+
+        return (
+            <div className="container">
+				<h1>Color Selector</h1>
+				<div className='reset' >
+					<button onClick={this.startOver}>Reset</button>
+				</div>
+				{this.state.colors.map((color, i) => <Color key={'color_'+i} color={color} selected={this.state.selectedColor} onClick={this.changeColor}/>)}
+            </div>);
+        }
+      }
 
 export default App;

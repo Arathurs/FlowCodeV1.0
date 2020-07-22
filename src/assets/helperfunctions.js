@@ -1,0 +1,22 @@
+const createRandomRGB = () => {
+
+	const numOne = Math.floor(Math.random()*266),
+	  numTwo = Math.floor(Math.random()*266),
+	  numThree = Math.floor(Math.random()*266),
+	  newRGB = `rgb(${numOne},${numTwo},${numThree})`;
+	  console.log(numOne, numTwo, numThree, newRGB);
+	  return newRGB;
+}
+
+export const createFiftyRandomColors = () => {
+	
+	let colors = [];
+	
+	for(let i = 0; i < 50; i++) {
+		
+		const newRGB = createRandomRGB();
+		colors.push(newRGB);
+	}
+	
+	return colors;
+}
