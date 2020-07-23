@@ -62,8 +62,9 @@ class App extends React.Component {
 					<button onClick={this.startOver}>Reset</button>
 				</div>
 				{this.state.colors.map((color, i) => <Color key={'color_'+i} color={color} selected={this.state.selectedColor} onClick={this.changeColor}/>)}
-            </div>);
-        }
-      }
+            </div>
+		);
+    }
+}
 
 export default App;

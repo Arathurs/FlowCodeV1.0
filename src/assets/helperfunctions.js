@@ -4,7 +4,7 @@ const createRandomRGB = () => {
 	  numTwo = Math.floor(Math.random()*266),
 	  numThree = Math.floor(Math.random()*266),
 	  newRGB = `rgb(${numOne},${numTwo},${numThree})`;
-	  console.log(numOne, numTwo, numThree, newRGB);
+	  
 	  return newRGB;
 }
 
