@@ -1,4 +1,5 @@
 import React from 'react';
+import { ColorErrorBoundary } from './errors/ColorErrorBoundary';
 
 export class Color extends React.Component {
   	constructor(props) {
@@ -18,6 +19,13 @@ export class Color extends React.Component {
 	
 	render() {
         
-		return <div className={this.props.color === this.props.selected ? 'color select' : 'color'} style={{backgroundColor: this.props.color}} onClick={this.handleClick}></div>;
+		return (
+			
+			<ColorErrorBoundary>
+				
+				<div className={this.props.color === this.props.selected ? 'color select' : 'color'} style={{backgroundColor: this.props.color}} onClick={this.handleClick}></div>
+			
+			</ColorErrorBoundary>
+		);
     }
 }
