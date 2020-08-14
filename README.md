@@ -21,4 +21,4 @@ A color flow code which generates fifty random colors with the click of a button
 - React
 - ReactDOM
 - HTML5
-- CSS5
+- CSS3
